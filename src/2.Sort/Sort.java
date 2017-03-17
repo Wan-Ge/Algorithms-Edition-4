@@ -15,8 +15,6 @@
  *
  **************************************************************************/
 
-import edu.princeton.cs.algs4.*;
-
 /**
  * Created by WanGe on 2017/3/13.
  */
@@ -51,7 +49,7 @@ public class Sort extends DrawTrack {
 
     //下面所有的排序算法都将数组按 升序排序
     //All the sorting algorithms below are arrange the array ins ascending order
-    public static void SelectSort(Comparable[] a) {
+    public static void selectSort(Comparable[] a) {
         int N = a.length;
         for (int i = 0; i < N; i++) {
             //交换从 a[i] 到 a[i+1..N] 中最小的数字，和 a[i] 进行交换
@@ -64,7 +62,7 @@ public class Sort extends DrawTrack {
         }
     }
 
-    public static void InsertSort(Comparable[] a) {
+    public static void insertSort(Comparable[] a) {
         int N = a.length;
         int j_tmp = 0;
         for (int i = 1; i < N; i++) {
@@ -77,7 +75,7 @@ public class Sort extends DrawTrack {
         }
     }
 
-    public static void ShellSort(Comparable[] a) {
+    public static void shellSort(Comparable[] a) {
         int N = a.length;
         int h = 1;
         while (h < N/3)
@@ -97,7 +95,7 @@ public class Sort extends DrawTrack {
         }
     }
 
-    //Auxiliary code of merge sort
+    //Auxiliary code of merge sort (Merge the two sub array)
     private static void merge_inSuit(Comparable[] a, int low, int mid, int high) {
         //将 a[low..mind] 和 a[mid..high] 归并
         //Merge the a[low..mind] and a[mid..high]
@@ -118,23 +116,34 @@ public class Sort extends DrawTrack {
             else if (j > high)              a[k] = aux[i++];
             else if (less(aux[j], aux[i]))  a[k] = aux[j++];
             else                            a[k] = aux[i++];
-            t.traceSortTrack(a, draw);   //if you write this line code outside for loop, it will draw more quickly.
+            //t.traceSortTrack(a, draw);   //if you write this line code outside for loop, it will draw more quickly.
         }
     }
 
-    public static void MergeSort(Comparable[] a, int low, int high) {
+    public static void mergeSort(Comparable[] a, int low, int high) {
         //Sort the a[low..high]
         if (high <= low)    return;
         int mid = low + (high - low)/2;
-        MergeSort(a, low, mid);
-        MergeSort(a, mid+1, high);
+        mergeSort(a, low, mid);
+        mergeSort(a, mid+1, high);
         merge_inSuit(a, low, mid, high);
     }
 
     //Main entrance of merge sort (Top-down merge sort)
-    public static void MergeSort(Comparable[] a) {
+    public static void mergeSort(Comparable[] a) {
         aux = new Comparable[a.length];
-        MergeSort(a, 0, a.length - 1);
+        mergeSort(a, 0, a.length - 1);
+    }
+
+    //Another method of merge sort (Bottom-Up merge sort)
+    public static void mergeSortBU(Comparable[] a) {
+        //Do logN times merge
+        int N = a.length;
+        aux = new Comparable[N];
+        for (int sz = 1; sz < N; sz = sz+sz) {      //size of "sz" sub arrays
+            for (int low = 0; low < N-sz; low += sz+sz)          //low:sub array index
+                merge_inSuit(a, low, low+sz-1, Math.min(low+sz+sz-1, N-1));
+        }
     }
 }
 

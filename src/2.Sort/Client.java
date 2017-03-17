@@ -12,24 +12,24 @@ public class Client extends Sort{
         Double[] a = new Double[N];
         for (int i = 0; i < N; i++)
             a[i] = StdRandom.uniform(2.0, 50.0);
-        MergeSort(a);                 //Modify the sort method that you want to see
+        mergeSortBU(a);                 //Modify the sort method that you want to see
         assert isSorted(a);
         show(a);
     }
 
     public static void comparisonTest() {
         SortCompare t = new SortCompare();
-        double t1 = t.timeRandomInput("ShellSort", 100, 100000);
-        System.out.println("ShellSort: " + t1);
+        double t1 = t.timeRandomInput("mergeSort", 100, 100000);
+        System.out.println("mergeSort: " + t1);
 
-        double t2 = t.timeRandomInput("MergeSort", 100, 100000);
-        System.out.println("MergeSort: " + t2);
+        double t2 = t.timeRandomInput("mergeSortBU", 100, 100000);
+        System.out.println("mergeSortBU: " + t2);
 
-        System.out.printf("%.1f times faster than ShellSort\n", t2/t1);
+        System.out.printf("%.1f times faster than t1\n", t2/t1);
     }
 
     public static void main(String[] args) {
-        unitTest();
-        //comparisonTest();
+        //unitTest();
+        comparisonTest();
     }
 }

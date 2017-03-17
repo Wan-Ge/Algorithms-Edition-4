@@ -7,10 +7,11 @@ public class SortCompare {
     public static double time(String alg, Double[] a) {
         Sort t= new Sort();
         Stopwatch timer = new Stopwatch();
-        if (alg.equals("InsertSort"))   t.InsertSort(a);
-        if (alg.equals("SelectSort"))   t.SelectSort(a);
-        if (alg.equals("ShellSort"))   t.ShellSort(a);
-        if (alg.equals("MergeSort"))   t.MergeSort(a);
+        if (alg.equals("insertSort"))   t.insertSort(a);
+        if (alg.equals("selectSort"))   t.selectSort(a);
+        if (alg.equals("shellSort"))   t.shellSort(a);
+        if (alg.equals("mergeSort"))   t.mergeSort(a);
+        if (alg.equals("mergeSortBU"))   t.mergeSortBU(a);
         return timer.elapsedTime();
     }
 
