@@ -47,6 +47,6 @@ Temporary Items
 .apdisk
 
 
-./idea/*
+idea/*
 .iml
-./out/*
+out/*
