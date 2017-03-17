@@ -25,23 +25,23 @@ public class Sort extends DrawTrack {
     static Sort t = new Sort();
     private static Comparable[] aux;   //the auxiliary arrays that merge sort used
 
-    private static boolean less(Comparable v, Comparable w) {
+    public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
-    private static void exch(Comparable[] a, int i, int j) {
+    public static void exch(Comparable[] a, int i, int j) {
         Comparable t = a[i];
         a[i] = a[j];
         a[j] = t;
     }
 
-    private static void show(Comparable[] a) {
+    public static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++)
             System.out.printf(a[i] + " ");
         System.out.println();
     }
 
-    private static boolean isSorted(Comparable[] a) {
+    public static boolean isSorted(Comparable[] a) {
         //测试数组中所有的元素都是有序的
         //Test whether the array elements are ordered
         for (int i = 1; i < a.length; i++)
@@ -131,38 +131,10 @@ public class Sort extends DrawTrack {
         merge_inSuit(a, low, mid, high);
     }
 
-    //Main entrance of merge sort
+    //Main entrance of merge sort (Top-down merge sort)
     public static void MergeSort(Comparable[] a) {
         aux = new Comparable[a.length];
         MergeSort(a, 0, a.length - 1);
-    }
-
-    public static void unitTest() {
-        //Just for test and draw one array
-        DrawTrack t = new DrawTrack(){};
-        int N = 40;
-        Double[] a = new Double[N];
-        for (int i = 0; i < N; i++)
-            a[i] = StdRandom.uniform(2.0, 50.0);
-        MergeSort(a);                 //Modify the sort method that you want to see
-        assert isSorted(a);
-        show(a);
-    }
-
-    public static void comparisonTest() {
-        SortCompare t = new SortCompare();
-        double t1 = t.timeRandomInput("ShellSort", 100, 100000);
-        System.out.println("ShellSort: " + t1);
-
-        double t2 = t.timeRandomInput("MergeSort", 100, 100000);
-        System.out.println("MergeSort: " + t2);
-
-        System.out.printf("%.1f times faster than ShellSort\n", t2/t1);
-    }
-
-    public static void main(String[] args) {
-        unitTest();
-        //comparisonTest();
     }
 }
 
