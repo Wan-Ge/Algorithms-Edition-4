@@ -1,3 +1,11 @@
+/****************************************************************************
+ *
+ *  Use the function provided by algs4 to draw a array
+ *
+ *  See API of StdDraw for specific parameters
+ *
+ **************************************************************************/
+
 import edu.princeton.cs.algs4.StdDraw;
 
 /**
@@ -21,6 +29,6 @@ public abstract class DrawTrack {
             double rh = (double)a[k]/80;
             StdDraw.filledRectangle(x, y, rw, rh);
         }
-        StdDraw.pause(300);
+        StdDraw.pause(200);
     }
 }

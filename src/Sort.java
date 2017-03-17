@@ -1,8 +1,26 @@
+/****************************************************************************
+ *
+ *  Sort: 《Algorithm Edition 4》  Chapter 2
+ *  Dependencies: algs4.jar
+ *  Data files: http://algs4.cs.princeton.edu/code/algs4.jar
+ *
+ *  Basic sorting algorithm of 《Algorithm Edition 4》
+ *
+ *  The code contains visualiztion windows of every sort algorithm
+ *  Just for my own interest, if you like and need, hope you can enjoy it!
+ *
+ *  These code are very rough, if you have better idea, you can modify it ^_^
+ *
+ *  Trace sort track use this method  "traceSortTrack(Comparable[] a, int...args)"
+ *
+ **************************************************************************/
+
 import edu.princeton.cs.algs4.*;
 
 /**
  * Created by WanGe on 2017/3/13.
  */
+
 public class Sort extends DrawTrack {
     static Sort t = new Sort();
     private static Comparable[] aux;   //the auxiliary arrays that merge sort used
@@ -20,7 +38,7 @@ public class Sort extends DrawTrack {
     private static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++)
             System.out.printf(a[i] + " ");
-        System.out.println()
+        System.out.println();
     }
 
     private static boolean isSorted(Comparable[] a) {
@@ -72,7 +90,7 @@ public class Sort extends DrawTrack {
                 //Insert a[i] into a[i-h], a[i-2*h], a[i-3*h]...
                 for (int j = i; j >= h && less(a[j], a[j-h]); j-=h) {
                     exch(a, j, j-h);
-                    t.traceSortTrack(a, j, j-h);
+                    //t.traceSortTrack(a, j, j-h);
                 }
             }
             h = h / 3;
@@ -86,7 +104,8 @@ public class Sort extends DrawTrack {
         int i = low, j = mid + 1;
 
         //These code just for create the arguments for the traceSortTrack function
-        int low_tmp = low, mid_tmp = mid + 1;
+        //but it has some effects on the performance of sort
+        int low_tmp = low, mid_tmp = j;
         int[] draw = new int[j - i];
         for (int k = 0; k < draw.length && low_tmp < mid_tmp; k++, low_tmp++)
             draw[k] = low_tmp;
@@ -99,8 +118,8 @@ public class Sort extends DrawTrack {
             else if (j > high)              a[k] = aux[i++];
             else if (less(aux[j], aux[i]))  a[k] = aux[j++];
             else                            a[k] = aux[i++];
+            t.traceSortTrack(a, draw);   //if you write this line code outside for loop, it will draw more quickly.
         }
-        t.traceSortTrack(a, draw);
     }
 
     public static void MergeSort(Comparable[] a, int low, int high) {
@@ -113,7 +132,7 @@ public class Sort extends DrawTrack {
     }
 
     //Main entrance of merge sort
-    private static void MergeSort(Comparable[] a) {
+    public static void MergeSort(Comparable[] a) {
         aux = new Comparable[a.length];
         MergeSort(a, 0, a.length - 1);
     }
@@ -121,7 +140,7 @@ public class Sort extends DrawTrack {
     public static void unitTest() {
         //Just for test and draw one array
         DrawTrack t = new DrawTrack(){};
-        int N = 30;
+        int N = 40;
         Double[] a = new Double[N];
         for (int i = 0; i < N; i++)
             a[i] = StdRandom.uniform(2.0, 50.0);
@@ -132,16 +151,13 @@ public class Sort extends DrawTrack {
 
     public static void comparisonTest() {
         SortCompare t = new SortCompare();
-        /*double t1 = t.timeRandomInput("SelectSort", 100, 1000);
-        System.out.println("SelectSort: " + t1);*/
+        double t1 = t.timeRandomInput("ShellSort", 100, 100000);
+        System.out.println("ShellSort: " + t1);
 
-        double t2 = t.timeRandomInput("ShellSort_2", 100, 100000);
-        System.out.println("ShellSort_2: " + t2);
+        double t2 = t.timeRandomInput("MergeSort", 100, 100000);
+        System.out.println("MergeSort: " + t2);
 
-        double t3 = t.timeRandomInput("ShellSort", 100, 100000);
-        System.out.println("ShellSort: " + t3);
-
-        System.out.printf("%.1f times faster than InsertSort\n", t3/t2);
+        System.out.printf("%.1f times faster than ShellSort\n", t2/t1);
     }
 
     public static void main(String[] args) {

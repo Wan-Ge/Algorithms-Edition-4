@@ -10,6 +10,7 @@ public class SortCompare {
         if (alg.equals("InsertSort"))   t.InsertSort(a);
         if (alg.equals("SelectSort"))   t.SelectSort(a);
         if (alg.equals("ShellSort"))   t.ShellSort(a);
+        if (alg.equals("MergeSort"))   t.MergeSort(a);
         return timer.elapsedTime();
     }
 
