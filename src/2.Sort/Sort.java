@@ -156,9 +156,11 @@ public class Sort extends DrawTrack {
     public static int partition(Comparable[] a, int low, int high) {
         //divide the array into a[low..i-1],  a[i],  a[i+1..high]
         int i = low, j = high + 1;           //  left/right scan-pointer
-        Comparable v = a[low];                //split elements
+        Comparable v = a[low];                //split element
         while (true) {
             // Scan left and right, check whether the scan is over and swap the elements
+            // in fact, this two "if()" can be removed, cuz the split element is a[low]
+            // it can't smaller than itself, the same as right side of array
             while (less(a[++i], v))     if (i == high)  break;
             while (less(v, a[--j]))     if (j == low)   break;
             if (i >= j)     break;
@@ -180,6 +182,10 @@ public class Sort extends DrawTrack {
     }
 
     public static void quickSort(Comparable[] a, int low, int high) {
+        //when we are sort a little array, we can switch to insert sort,
+        //use this statement to replace "if(high < low) return;"
+        //if(high <= low + M){insertSort(a); return;}
+        //In most cases, the value of M between 5-15 can be satisfactory
         if (high <= low)    return;
         int j = partition(a, low, high);
         quickSort(a, low, j-1);       //sort the left part a[low..j-1]
