@@ -18,6 +18,7 @@ Hope you will like it !            ^ _ ^
 - Insert Sort
 - Merge Sort (Top-Down)
 - Merge Sort(Bottom-Up)
+- Quick Sort
 
 contains "Sort Compare" and others pre-algorithm like "less",  "exch"... etc.
 visualization window now only can paint RED(has been moved) and GRAY(not been moved)

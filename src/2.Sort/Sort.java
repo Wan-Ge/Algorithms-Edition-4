@@ -170,6 +170,7 @@ public class Sort extends DrawTrack {
         return j;              // a[low..j-1] <= a[j] <= a[j+1..high] reached
     }
 
+    //Main entrance of quick sort
     public static void quickSort(Comparable[] a) {
         //Eliminate dependency on input (Rearranges the elements of the specified array in uniformly random order.)
         //we all know that when a array is already ordered
@@ -178,7 +179,6 @@ public class Sort extends DrawTrack {
         quickSort(a, 0, a.length - 1);
     }
 
-    //Main entrance of quick sort
     public static void quickSort(Comparable[] a, int low, int high) {
         if (high <= low)    return;
         int j = partition(a, low, high);
