@@ -1,10 +1,10 @@
 /****************************************************************************
  *
- *  Sort: 《Algorithm Edition 4》  Chapter 2
+ *  Sort:  "Algorithm Edition 4"  Chapter 2
  *  Dependencies: algs4.jar
  *  Data files: http://algs4.cs.princeton.edu/code/algs4.jar
  *
- *  Basic sorting algorithm of 《Algorithm Edition 4》
+ *  Basic sorting algorithm of "Algorithm Edition 4"
  *
  *  The code contains visualiztion windows of every sort algorithm
  *  Just for my own interest, if you like and need, hope you can enjoy it!
@@ -14,6 +14,11 @@
  *  Trace sort track use this method  "traceSortTrack(Comparable[] a, int...args)"
  *
  **************************************************************************/
+
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdRandom;
+
+import java.util.Arrays;
 
 /**
  * Created by WanGe on 2017/3/13.
@@ -35,8 +40,7 @@ public class Sort extends DrawTrack {
 
     public static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++)
-            System.out.printf(a[i] + " ");
-        System.out.println();
+            System.out.println(a[i]);
     }
 
     public static boolean isSorted(Comparable[] a) {
@@ -108,8 +112,10 @@ public class Sort extends DrawTrack {
         for (int k = 0; k < draw.length && low_tmp < mid_tmp; k++, low_tmp++)
             draw[k] = low_tmp;
 
-        for (int k = low; k <= high; k++)
-            aux[k] = a[k];    //copy a[low..high] to aux[low..high]
+        //manual copy a[low..high] to aux[low..high] or use the standard library
+        /*for (int k = low; k <= high; k++)
+            aux[k] = a[k];*/
+        aux = Arrays.copyOf(a, a.length);
 
         for (int k = low; k <= high; k++) {
             if      (i > mid)               a[k] = aux[j++];
@@ -140,10 +146,44 @@ public class Sort extends DrawTrack {
         //Do logN times merge
         int N = a.length;
         aux = new Comparable[N];
-        for (int sz = 1; sz < N; sz = sz+sz) {      //size of "sz" sub arrays
+        for (int sz = 1; sz < N; sz += sz) {      //size of "sz" sub arrays
             for (int low = 0; low < N-sz; low += sz+sz)          //low:sub array index
                 merge_inSuit(a, low, low+sz-1, Math.min(low+sz+sz-1, N-1));
         }
+    }
+
+    //Auxiliary code of quick sort
+    public static int partition(Comparable[] a, int low, int high) {
+        //divide the array into a[low..i-1],  a[i],  a[i+1..high]
+        int i = low, j = high + 1;           //  left/right scan-pointer
+        Comparable v = a[low];                //split elements
+        while (true) {
+            // Scan left and right, check whether the scan is over and swap the elements
+            while (less(a[++i], v))     if (i == high)  break;
+            while (less(v, a[--j]))     if (j == low)   break;
+            if (i >= j)     break;
+            exch(a, i, j);
+            //t.traceSortTrack(a, i, j);
+        }
+        exch(a, low, j);       //put v = a[j] into a correct position
+        //t.traceSortTrack(a, low, j);
+        return j;              // a[low..j-1] <= a[j] <= a[j+1..high] reached
+    }
+
+    public static void quickSort(Comparable[] a) {
+        //Eliminate dependency on input (Rearranges the elements of the specified array in uniformly random order.)
+        //we all know that when a array is already ordered
+        //actually quick sort is slower than other method
+        StdRandom.shuffle(a);
+        quickSort(a, 0, a.length - 1);
+    }
+
+    //Main entrance of quick sort
+    public static void quickSort(Comparable[] a, int low, int high) {
+        if (high <= low)    return;
+        int j = partition(a, low, high);
+        quickSort(a, low, j-1);       //sort the left part a[low..j-1]
+        quickSort(a, j+1, high);      //sort the right part a[j+1..high]
     }
 }
 
