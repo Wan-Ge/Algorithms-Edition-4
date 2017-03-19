@@ -191,5 +191,20 @@ public class Sort extends DrawTrack {
         quickSort(a, low, j-1);       //sort the left part a[low..j-1]
         quickSort(a, j+1, high);      //sort the right part a[j+1..high]
     }
+
+    public static void quick3way(Comparable[] a, int low, int high) {
+        //this method can be called by quickSort(Main entrance)
+        if (high <= low) return;
+        int lt = low, i = low + 1, gt = high;
+        Comparable v = a[low];
+        while (i <= gt) {
+            int cmp = a[i].compareTo(v);
+            if (cmp < 0)        exch(a, lt++, i++);
+            else if (cmp > 0)   exch(a, i, gt--);
+            else    i++;
+        }  //now a[low..lt-1] < v = a[lt..gt] < a[ht+1..high] is established
+        quick3way(a, low, lt-1);
+        quick3way(a, gt+1, high);
+    }
 }
 
