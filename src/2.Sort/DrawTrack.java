@@ -10,8 +10,13 @@ import edu.princeton.cs.algs4.StdDraw;
 
 /**
  * Created by WanGe on 2017/3/16.
+ *
+ * Sort extends this to call traceSortTrack
  */
 public abstract class DrawTrack {
+    /**
+     * @param args variable parameter, record the elements being exchanged
+     */
     public void traceSortTrack(Comparable[] a, int ...args) {
         int N = a.length;
         StdDraw.clear();

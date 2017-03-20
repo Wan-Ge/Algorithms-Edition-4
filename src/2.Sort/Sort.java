@@ -22,6 +22,8 @@ import java.util.Arrays;
 
 /**
  * Created by WanGe on 2017/3/13.
+ *
+ * @author WanGe
  */
 
 public class Sort extends DrawTrack {
@@ -172,15 +174,6 @@ public class Sort extends DrawTrack {
         return j;              // a[low..j-1] <= a[j] <= a[j+1..high] reached
     }
 
-    //Main entrance of quick sort
-    public static void quickSort(Comparable[] a) {
-        //Eliminate dependency on input (Rearranges the elements of the specified array in uniformly random order.)
-        //we all know that when a array is already ordered
-        //actually quick sort is slower than other method
-        StdRandom.shuffle(a);
-        quickSort(a, 0, a.length - 1);
-    }
-
     public static void quickSort(Comparable[] a, int low, int high) {
         //when we are sort a little array, we can switch to insert sort,
         //use this statement to replace "if(high < low) return;"
@@ -192,8 +185,20 @@ public class Sort extends DrawTrack {
         quickSort(a, j+1, high);      //sort the right part a[j+1..high]
     }
 
+    //Main entrance of quick sort
+    public static void quickSort(Comparable[] a) {
+        //Eliminate dependency on input (Rearranges the elements of the specified array in uniformly random order.)
+        //we all know that when a array is already ordered
+        //actually quick sort is slower than other method
+        StdRandom.shuffle(a);
+        quickSort(a, 0, a.length - 1);
+    }
+
+    /**
+     * Applies to an array containing many duplicate numbers
+     * this method can be called by {@code quickSort(Main entrance)}
+     */
     public static void quick3way(Comparable[] a, int low, int high) {
-        //this method can be called by quickSort(Main entrance)
         if (high <= low) return;
         int lt = low, i = low + 1, gt = high;
         Comparable v = a[low];
@@ -205,6 +210,55 @@ public class Sort extends DrawTrack {
         }  //now a[low..lt-1] < v = a[lt..gt] < a[ht+1..high] is established
         quick3way(a, low, lt-1);
         quick3way(a, gt+1, high);
+    }
+
+    /**
+     * <em>For brevity, i drop the "binary" modifier and use the term heap
+     * when referring to a binary heap.</em>
+     *
+     * I use a[0] just because i don't want to modify the client code. in fact,
+     * many programmers prefer not use a[0]. it can be a sentinel value.
+     *
+     * Order a heap from top to bottom, from a[0] to a[N] (consistent
+     * with other methods ), or you can not use the a[0], instead a[1] to a[N],
+     * just modify {@code j = 2*k+1} to {@code j = 2*k}, and 2*k <= N
+     *
+     * @param N Every time the N-- can sort a element
+     */
+    public static void sink(Comparable[] a, int k, int N) {
+        while (2*k < N) {
+            int j = 2*k + 1;
+            if (j < N && less(a[j], a[j+1]))  j++;
+            if (!less(a[k], a[j]))    break;
+            //t.traceSortTrack(a, k, j);
+            exch(a, k, j);
+            k = j;
+        }
+    }
+
+    /**
+     * if array is a[1] to a[N], modify {@code (k-1)/2} to {@code k/2}
+     * and k > 1
+     */
+    public static void swim(Comparable[] a, int k) {
+        while (k > 0 && less((k-1)/2, k)) {
+            exch(a, (k-1)/2, k);
+            k = (k-1)/2;
+        }
+    }
+
+    /**
+     * we can use sink() or swim() to create a binary heap (heap-ordered)
+     * but seems that we can only sort a binary heap by sink()
+     */
+    public static void heapSort(Comparable[] a) {
+        int N = a.length - 1;
+        for (int k = N/2; k >= 0; k--)
+            sink(a, k, N);
+        while (N > 0) {
+            exch(a, 0, N--);
+            sink(a, 0, N);
+        }
     }
 }
 

@@ -12,6 +12,10 @@ Hope you will like it !            ^ _ ^
 
 ## Chapter 2 - Sort 
 
+### 2017/03/20
+
+- Binary Heap Sort(sink)
+
 ### 2017/03/19
 
 - Quick3way (array contains many duplicate numbers)

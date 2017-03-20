@@ -12,7 +12,7 @@ public class Client extends Sort{
         Double[] a = new Double[N];
         for (int i = 0; i < N; i++)
             a[i] = StdRandom.uniform(2.0, 50.0);
-        quickSort(a);                 //Modify the sort method that you want to see
+        heapSort(a);                 //Modify the sort method that you want to see
         assert isSorted(a);
         show(a);
     }
@@ -29,7 +29,7 @@ public class Client extends Sort{
     }
 
     public static void main(String[] args) {
-        //unitTest();
-        comparisonTest();
+        unitTest();
+        //comparisonTest();
     }
 }
