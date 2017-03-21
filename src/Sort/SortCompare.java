@@ -1,4 +1,7 @@
-import edu.princeton.cs.algs4.*;
+package Sort;
+
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.Stopwatch;
 
 /**
  * Created by WanGe on 2017/3/16.

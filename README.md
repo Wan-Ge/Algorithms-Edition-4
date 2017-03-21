@@ -31,6 +31,12 @@ Hope you will like it !            ^ _ ^
 - Merge Sort (Top-Down)
 - Merge Sort(Bottom-Up)
 
+
+## Chapter 3 - Search
+
+### 2017/03/21
+- Binary Search(Recursive and Iterative)
+
 contains "Sort Compare" and others pre-algorithm like "less",  "exch"... etc.
 
 **visualization window now only can paint RED(has been moved) and GRAY(not been moved)**

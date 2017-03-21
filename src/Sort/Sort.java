@@ -1,4 +1,4 @@
-/****************************************************************************
+ /****************************************************************************
  *
  *  Sort:  "Algorithm Edition 4"  Chapter 2
  *  Dependencies: algs4.jar
@@ -15,7 +15,8 @@
  *
  **************************************************************************/
 
-import edu.princeton.cs.algs4.StdDraw;
+ package Sort;
+
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Arrays;

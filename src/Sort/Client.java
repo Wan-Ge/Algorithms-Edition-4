@@ -1,9 +1,11 @@
+package Sort;
+
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * Created by WanGe on 2017/3/17.
  */
-public class Client extends Sort{
+public class Client extends Sort {
 
     public static void unitTest() {
         //Just for test and draw one array
