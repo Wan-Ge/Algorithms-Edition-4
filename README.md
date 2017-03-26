@@ -34,6 +34,10 @@ Hope you will like it !            ^ _ ^
 
 ## Chapter 3 - Search
 
+### 2017/03/26
+- Interpolation Search(like binary search)
+- BinarySearchTree (Key-Value)
+
 ### 2017/03/21
 - Binary Search(Recursive and Iterative)
 

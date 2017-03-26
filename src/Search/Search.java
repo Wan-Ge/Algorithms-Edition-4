@@ -41,6 +41,14 @@ public class Search{
     }
 
     /**
+     * About binary search, except for the one(two ways to achieve) that we are always use
+     * another way called  <em>"interpolation search"</em>, we just need to modify
+     * "mid = low + (low+high)/2 to
+     * mid = low + (high-low)*(key.compareTo(keys[low]))/ (keys[high].compareTo(keys[low]));
+     *
+     * For some large list, and the distribution of keywords is more uniform. The average
+     * performance of the interpolation search algorithm is much better than the binary search
+     *
      * Recursive binary search
      *
      * @return the index of key

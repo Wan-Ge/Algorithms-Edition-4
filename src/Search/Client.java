@@ -31,7 +31,28 @@ public class Client {
         Search.show(a);
     }
 
+    public static void treeTest() {
+        BinarySearchTree tmp = new BinarySearchTree();
+        tmp.put('S', 0);
+        tmp.put('E', 1);
+        tmp.put('A', 2);
+        tmp.put('R', 3);
+        tmp.put('C', 4);
+        tmp.put('H', 5);
+        tmp.put('E', 6);
+        tmp.put('X', 7);
+        tmp.put('A', 8);
+        tmp.put('M', 9);
+        tmp.put('P', 10);
+        tmp.put('L', 11);
+        tmp.put('E', 12);
+
+
+        System.out.println(tmp.get('M'));
+    }
+
     public static void main(String[] args) {
-        unitTest();
+        //unitTest();
+        treeTest();
     }
 }
