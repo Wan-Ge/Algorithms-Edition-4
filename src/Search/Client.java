@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * Created by WanGe on 2017/3/21.
+ *
  */
 public class Client {
     public static void unitTest() {
@@ -32,7 +33,7 @@ public class Client {
     }
 
     public static void treeTest() {
-        BinarySearchTree tmp = new BinarySearchTree();
+        BinarySearchTree<Character, Integer> tmp = new BinarySearchTree();
         tmp.put('S', 0);
         tmp.put('E', 1);
         tmp.put('A', 2);
@@ -48,7 +49,7 @@ public class Client {
         tmp.put('E', 12);
 
 
-        System.out.println(tmp.get('M'));
+        System.out.println(tmp.keys('C', 'R'));
     }
 
     public static void main(String[] args) {

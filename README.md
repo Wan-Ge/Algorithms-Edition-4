@@ -1,6 +1,6 @@
-# Algorithms-Edition-4
+# Algorithms-4th-Edition
 
-All of the above code is the **basic algorithm** in *Algorithm-Edtion-4*, These are very basic things. 
+All of the above code is the **basic algorithm** in *Algorithm-4th-Edtion*, These are very basic things. 
 
 At the moment, i just added the original book without giving the sorting visualization window code. To facilitate myself and those who need it to view and study.  (2017/03/17)
 

@@ -1,12 +1,12 @@
  /****************************************************************************
  *
- *  Sort:  "Algorithm Edition 4"  Chapter 2
+ *  Sort:  "Algorithm 4th Edition"  Chapter 2
  *  Dependencies: algs4.jar
  *  Data files: http://algs4.cs.princeton.edu/code/algs4.jar
  *
- *  Basic sorting algorithm of "Algorithm Edition 4"
+ *  Basic sorting algorithm of "Algorithm 4th Edition"
  *
- *  The code contains visualiztion windows of every sort algorithm
+ *  The code contains visualization windows of every sort algorithm
  *  Just for my own interest, if you like and need, hope you can enjoy it!
  *
  *  These code are very rough, if you have better idea, you can modify it ^_^
