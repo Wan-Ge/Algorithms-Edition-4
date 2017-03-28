@@ -33,7 +33,7 @@ public class Client {
     }
 
     public static void treeTest() {
-        BinarySearchTree<Character, Integer> tmp = new BinarySearchTree();
+        RedBlackTree<Character, Integer> tmp = new RedBlackTree();
         tmp.put('S', 0);
         tmp.put('E', 1);
         tmp.put('A', 2);
@@ -48,8 +48,7 @@ public class Client {
         tmp.put('L', 11);
         tmp.put('E', 12);
 
-
-        System.out.println(tmp.keys('C', 'R'));
+        tmp.print();
     }
 
     public static void main(String[] args) {
