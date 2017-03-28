@@ -152,7 +152,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value>{
     private Node balance(Node h) {
         if (isRed(h.right)) h = rotateLeft(h);
         if (isRed(h.right) && !isRed(h.left))       h = rotateLeft(h);
-        if (isRed(h.left) && !isRed(h.left.left))   h = rotateRight(h);
+        if (isRed(h.left) && isRed(h.left.left))   h = rotateRight(h);
         if (isRed(h.left) && isRed(h.right))        flipColorsDelete(h);
 
         h.N = size(h.left) + size(h.right) + 1;

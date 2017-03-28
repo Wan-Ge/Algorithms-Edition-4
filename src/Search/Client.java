@@ -48,9 +48,6 @@ public class Client {
         tmp.put('L', 11);
         tmp.put('E', 12);
 
-        //tmp.delete('E');
-        //tmp.delete('S');
-        //tmp.delete('M');
         while (!tmp.isEmpty()) {
             tmp.print();
             tmp.deleteMin();
