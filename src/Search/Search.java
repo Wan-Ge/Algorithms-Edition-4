@@ -7,12 +7,7 @@
  *  Basic search algorithm of "Algorithm Edition 4", but there maybe have
  *  some minor changes.
  *
- *  The code contains visualiztion windows of every search algorithm
- *  Just for my own interest, if you like and need, hope you can enjoy it!
- *
  *  These code are very rough, if you have better idea, you can modify it ^_^
- *
- *  Trace sort track use this method  "traceSortTrack(Comparable[] a, int...args)"
  *
  **************************************************************************/
 
@@ -38,6 +33,31 @@ public class Search{
     public static void  show(Comparable[] a) {
         for (Comparable e : a)
             System.out.println(e);
+    }
+
+    /**
+     * for compare two Comparable variable if equal to each other
+     *
+     * @return true or false, so while can receive the return value
+     */
+    public static boolean isEqual(Comparable x, Comparable y) {
+        if (x.compareTo(y) < 0 || x.compareTo(y) > 0)
+            return false;
+        else    return true;
+    }
+
+    /**
+     * A better and normal method of sequential search, but i need a[0]
+     * as a sentinel value
+     *
+     * @return if "i" is equal to 0, that means we can't find the key
+     */
+    public static int sequentialSearch(Comparable[] a, Comparable key) {
+        int i = a.length - 1;
+        a[0] = key;
+        while (!isEqual(a[i], key))
+            i--;
+        return i;
     }
 
     /**

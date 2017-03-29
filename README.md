@@ -34,12 +34,23 @@ Hope you will like it !            ^ _ ^
 
 ## Chapter 3 - Search
 
+### 2017/03/28
+- RedBlackTree (2-3 tree)
+
 ### 2017/03/26
-- Interpolation Search(like binary search)
+- Interpolation Search (like binary search)
 - BinarySearchTree (Key-Value)
 
 ### 2017/03/21
 - Binary Search(Recursive and Iterative)
+
+
+## Chapter 4 - Graphs
+
+### 2017/03/29
+- DepthFirstSearch (contains paths)
+- BreadthFirstSearch (contains paths)
+- Connected Component
 
 contains "Sort Compare" and others pre-algorithm like "less",  "exch"... etc.
 
