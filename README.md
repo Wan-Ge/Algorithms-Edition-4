@@ -39,7 +39,7 @@ Hope you will like it !            ^ _ ^
 
 ### 2017/03/26
 - Interpolation Search (like binary search)
-- BinarySearchTree (Key-Value)
+- Binary Search Tree (Key-Value)
 
 ### 2017/03/21
 - Binary Search(Recursive and Iterative)
@@ -48,8 +48,9 @@ Hope you will like it !            ^ _ ^
 ## Chapter 4 - Graphs
 
 ### 2017/03/29
-- DepthFirstSearch (contains paths)
-- BreadthFirstSearch (contains paths)
+- Symbol Graph
+- Depth First Search (contains paths)
+- Breadth First Search (contains paths)
 - Connected Component
 
 contains "Sort Compare" and others pre-algorithm like "less",  "exch"... etc.
