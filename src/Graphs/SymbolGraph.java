@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * Created by WanGe on 2017/3/29.
+ *
  */
 public class SymbolGraph {
     private HashMap<String, Integer> map;         // String -> index

@@ -7,12 +7,12 @@ import edu.princeton.cs.algs4.Stack;
  *
  * Created by WanGe on 2017/3/29.
  */
-public class DepathFirstPaths {
+public class DepthFirstPaths {
     private boolean[] marked;
     private int[] edgeTo;       //last vertex on known path to this vertex
     private final int s;        //source
 
-    public DepathFirstPaths(Graph G, int s) {
+    public DepthFirstPaths(Graph G, int s) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
@@ -23,8 +23,8 @@ public class DepathFirstPaths {
         marked[v] = true;
         for (int w : G.adj(v))
             if (!marked[w]) {
-            edgeTo[w] = v;
-            dfs(G, w);
+                edgeTo[w] = v;
+                dfs(G, w);
             }
     }
 

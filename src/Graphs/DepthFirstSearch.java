@@ -1,6 +1,8 @@
 package Graphs;
 
 /**
+ * Undirected Graphs
+ *
  * Contains several small algorithm of DFS, it can avoid writing too many
  * classes in a package. but the code may looks like a little messy.
  *
@@ -14,7 +16,7 @@ package Graphs;
  *
  * Created by WanGe on 2017/3/29.
  */
-public class DepathFirstSearch {
+public class DepthFirstSearch {
     private boolean[] marked;
     private boolean[] cycle_marked;   //for hasCycle()
     private boolean hasCycle;
@@ -28,7 +30,7 @@ public class DepathFirstSearch {
      * @param G graph for search
      * @param s source
      */
-    public DepathFirstSearch(Graph G, int s) {
+    public DepthFirstSearch(Graph G, int s) {
         this.G = G;
         marked = new boolean[G.V()];
         dfs(G, s);
