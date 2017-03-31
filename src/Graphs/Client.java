@@ -10,7 +10,9 @@ import edu.princeton.cs.algs4.In;
 public class Client {
     public static void main(String[] args) {
         Digraph g = new Digraph(new In(args[0]));
-        DirectedDFS t = new DirectedDFS(g, 0);
-        System.out.println(t.hasCycle());
+        DepthFirstOrder t = new DepthFirstOrder(g);
+        System.out.println(t.pre());
+        System.out.println(t.post());
+        System.out.println(t.reversePost());
     }
 }
