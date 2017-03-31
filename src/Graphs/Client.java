@@ -10,9 +10,8 @@ import edu.princeton.cs.algs4.In;
 public class Client {
     public static void main(String[] args) {
         Digraph g = new Digraph(new In(args[0]));
-        DepthFirstOrder t = new DepthFirstOrder(g);
-        System.out.println(t.pre());
-        System.out.println(t.post());
-        System.out.println(t.reversePost());
+        KosarajuSCC t = new KosarajuSCC(g);
+        boolean m = t.stronglyConnected(6, 12);
+        System.out.println(m);
     }
 }

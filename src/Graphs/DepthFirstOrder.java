@@ -18,7 +18,6 @@ public class DepthFirstOrder {
     private ArrayList<Integer> pre;         // vertices in preorder
     private ArrayList<Integer> post;        // vertices in postorder
     private Stack<Integer> reversePost;     // vertices in reverse postorder
-    private Iterable<Integer> order;        // topological order
 
     public DepthFirstOrder(Digraph G) {
         pre = new ArrayList<>();

@@ -6,7 +6,9 @@ At the moment, i just added the original book without giving the sorting visuali
 
 Hope you will like it !            ^ _ ^
 
+Dependencies: algs4.jar
 
+Data files: http://algs4.cs.princeton.edu/code/algs4.jar
 
 
 
@@ -46,6 +48,19 @@ Hope you will like it !            ^ _ ^
 
 
 ## Chapter 4 - Graphs
+
+### 2017/03/31
+- Transitive Closure
+- KosarajuSCC
+- Topological sort
+- Symbol digraph
+
+### 2017/03/30
+- Breadth first paths
+- CComponent
+- Directed DFS
+- Depth first paths
+- Depth first order
 
 ### 2017/03/29
 - Symbol Graph
