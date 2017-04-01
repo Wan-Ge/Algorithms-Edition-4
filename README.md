@@ -50,6 +50,8 @@ Data files: http://algs4.cs.princeton.edu/code/algs4.jar
 ## Chapter 4 - Graphs
 
 ### 2017/04/01
+- Prim MST
+- Index minimum priority queue
 - Lazy prim MST
 
 ### 2017/03/31

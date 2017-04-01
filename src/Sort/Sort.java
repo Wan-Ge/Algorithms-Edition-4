@@ -46,9 +46,13 @@ public class Sort extends DrawTrack {
             System.out.println(a[i]);
     }
 
+    /**
+     * Test whether the array elements are ordered
+     * @param a the array
+     * @return true if all the elements are ordered
+     */
     public static boolean isSorted(Comparable[] a) {
         //测试数组中所有的元素都是有序的
-        //Test whether the array elements are ordered
         for (int i = 1; i < a.length; i++)
             if (less(a[i], a[i - 1]))   return false;
         return true;
@@ -56,6 +60,8 @@ public class Sort extends DrawTrack {
 
     //下面所有的排序算法都将数组按 升序排序
     //All the sorting algorithms below are arrange the array ins ascending order
+
+
     public static void selectSort(Comparable[] a) {
         int N = a.length;
         for (int i = 0; i < N; i++) {
@@ -108,7 +114,7 @@ public class Sort extends DrawTrack {
         //Merge the a[low..mind] and a[mid..high]
         int i = low, j = mid + 1;
 
-        //These code just for create the arguments for the traceSortTrack function
+        //These code just for create the arguments for the traceSortTrack()
         //but it has some effects on the performance of sort
         int low_tmp = low, mid_tmp = j;
         int[] draw = new int[j - i];
