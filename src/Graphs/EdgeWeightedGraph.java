@@ -27,6 +27,7 @@ public class EdgeWeightedGraph {
     public EdgeWeightedGraph(In in) {
         this(in.readInt());
         int E = in.readInt();
+        if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
         for (int i = 0; i < E; i++) {
             int v = in.readInt();
             int w = in.readInt();
@@ -53,4 +54,6 @@ public class EdgeWeightedGraph {
                 if (e.other(v) > v) b.add(e);
         return b;
     }
+
+    public Iterable<Edge> adj(int v) {return adj[v];}
 }
