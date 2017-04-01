@@ -50,9 +50,11 @@ Data files: http://algs4.cs.princeton.edu/code/algs4.jar
 ## Chapter 4 - Graphs
 
 ### 2017/03/31
+- EdgeWeightedGraph
 - Transitive Closure
 - KosarajuSCC
 - Topological sort
+- Directed cycle
 - Symbol digraph
 
 ### 2017/03/30
