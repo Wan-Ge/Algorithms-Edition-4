@@ -83,6 +83,22 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     }
 
     /**
+     * Change the key associated with index {@code i} to the specified value.
+     *
+     * @param  i the index of the key to change
+     * @param  key change the key associated with index {@code i} to this key
+     * @throws IndexOutOfBoundsException unless {@code 0 <= i < maxN}
+     * @throws NoSuchElementException no key is associated with index {@code i}
+     */
+    public void changeKey(int i, Key key) {
+        if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
+        if (!contains(i)) throw new NoSuchElementException("index is not in the priority queue");
+        keys[i] = key;
+        swim(qp[i]);
+        sink(qp[i]);
+    }
+
+    /**
      * Removes a minimum key and returns its associated index.
      * @return an index associated with a minimum key
      * @throws NoSuchElementException if this priority queue is empty
