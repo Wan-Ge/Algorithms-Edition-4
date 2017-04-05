@@ -2,9 +2,7 @@ package Graphs;
 
 import edu.princeton.cs.algs4.In;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Stack;
 
 /**
  * The {@code DijkstraSP} class represent a data type for solving the single-source
@@ -66,7 +64,7 @@ public class DijkstraSP {
      * @param v the destination vertex
      * @return the length
      */
-    private double distTo(int v) {return distTo[v];}
+    public double distTo(int v) {return distTo[v];}
 
     /**
      * Returns true if there is a path form the source vertex {@code s} to vertex {@code v}.
@@ -82,6 +80,7 @@ public class DijkstraSP {
      */
     public Iterable<DirectedEdge> pathTo(int v) {
         if (!hasPathTo(v))  return null;
+        // There's a bug in JDK's Stack class, so we use LinkedList
         LinkedList<DirectedEdge> path = new LinkedList<>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()])
             path.push(e);
