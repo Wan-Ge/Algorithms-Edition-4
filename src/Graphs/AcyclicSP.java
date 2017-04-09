@@ -15,6 +15,16 @@ import java.util.Stack;
  * immediately presents a solution to the single-source shortest-paths problem
  * for edge-weighted DAGs.
  *
+ * % java AcyclicSP tinyEWDAG.txt 5
+ * 5 to 0 (0.73)  4->0  0.38   5->4  0.35
+ * 5 to 1 (0.32)  5->1  0.32
+ * 5 to 2 (0.62)  7->2  0.34   5->7  0.28
+ * 5 to 3 (0.61)  1->3  0.29   5->1  0.32
+ * 5 to 4 (0.35)  5->4  0.35
+ * 5 to 5 (0.00)
+ * 5 to 6 (1.13)  3->6  0.52   1->3  0.29   5->1  0.32
+ * 5 to 7 (0.28)  5->7  0.28
+ *
  * Created by WanGe on 2017/4/5.
  */
 public class AcyclicSP {
