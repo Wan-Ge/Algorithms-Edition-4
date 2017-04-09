@@ -21,8 +21,9 @@ public class DirectedEdge {
 
     public int from() {return v;}
     public int to() {return w;}
+    public double weight() {return weight;}
 
     public String toString() {
-        return String.format("%d->%d %.2f", v, w, weight);
+        return v + "->" + w + " " + String.format("%5.2f", weight);
     }
 }

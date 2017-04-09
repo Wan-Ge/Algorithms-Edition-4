@@ -2,7 +2,7 @@ package Graphs;
 
 import edu.princeton.cs.algs4.In;
 
-import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * Acyclic edge-weighted digraphs
@@ -52,7 +52,7 @@ public class AcyclicSP {
 
     public Iterable<DirectedEdge> pathTo(int v) {
         if (!hasPathTo(v))  return null;
-        LinkedList<DirectedEdge> path = new LinkedList<>();
+        Stack<DirectedEdge> path = new Stack<>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()])
             path.push(e);
 
@@ -73,12 +73,14 @@ public class AcyclicSP {
         AcyclicSP sp = new AcyclicSP(G, s);
         for (int v = 0; v < G.V(); v++) {
             if (sp.hasPathTo(v)) {
-                System.out.printf("%d to %d (%.2f)", s, v, sp.distTo(v));
-                for (DirectedEdge e : sp.pathTo(v))
-                    System.out.println(e + "   ");
+                System.out.printf("%d to %d (%.2f)  ", s, v, sp.distTo(v));
+                for (DirectedEdge e : sp.pathTo(v)) {
+                    System.out.print(e + "   ");
+                }
                 System.out.println();
-            }else {
-                System.out.printf("%d to %d            no path\n", s, v);
+            }
+            else {
+                System.out.printf("%d to %d         no path\n", s, v);
             }
         }
     }

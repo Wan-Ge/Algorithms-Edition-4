@@ -126,7 +126,7 @@ public class EdgeWeightedDirectedCycle {
             System.out.println();
         }
 
-        // or give topologial sort
+        // or give topological sort
         else {
             System.out.println("No directed cycle");
         }

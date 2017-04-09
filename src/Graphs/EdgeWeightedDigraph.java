@@ -1,8 +1,10 @@
 package Graphs;
 
+import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * The {@code EdgeWeightedDigraph} class represents a edge-weighted digraph
@@ -16,19 +18,23 @@ import java.util.ArrayList;
  *  iterating over the edges incident from a given vertex, which takes
  *  time proportional to the number of such edges.
  *
+ *  Data File: tinyEWDAG.txt
+ *
  * Created by WanGe on 2017/4/1.
  */
 public class EdgeWeightedDigraph {
+    private static final String NEWLINE = System.getProperty("line.separator");
+
     private final int V;                        // number of vertices
     private int E;                              // number of edges
-    private ArrayList<DirectedEdge>[] adj;       // adjacency lists
+    private LinkedList<DirectedEdge>[] adj;       // adjacency lists
 
     public EdgeWeightedDigraph(int V) {
         this.V = V;
         this.E = 0;
-        adj = (ArrayList<DirectedEdge>[]) new ArrayList[V];
+        adj = (LinkedList<DirectedEdge>[]) new LinkedList[V];
         for (int v = 0; v < V; v++)
-            adj[v] = new ArrayList<>();
+            adj[v] = new LinkedList<>();
     }
 
     public EdgeWeightedDigraph(In in) {
@@ -47,7 +53,7 @@ public class EdgeWeightedDigraph {
     public int E() {return E;}
 
     public void addEdge(DirectedEdge e) {
-        adj[e.from()].add(e);
+        adj[e.from()].push(e);
         E++;
     }
 
@@ -59,5 +65,35 @@ public class EdgeWeightedDigraph {
             for (DirectedEdge e : adj[v])
                 arrayList.add(e);
         return arrayList;
+    }
+
+    /**
+     * Returns a string representation of this edge-weighted digraph.
+     *
+     * @return the number of vertices <em>V</em>, followed by the number of edges <em>E</em>,
+     *         followed by the <em>V</em> adjacency lists of edges
+     */
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(V + " " + E + NEWLINE);
+        for (int v = 0; v < V; v++) {
+            s.append(v + ": ");
+            for (DirectedEdge e : adj[v]) {
+                s.append(e + "  ");
+            }
+            s.append(NEWLINE);
+        }
+        return s.toString();
+    }
+
+    /**
+     * Unit tests the {@code EdgeWeightedDigraph} data type.
+     *
+     * @param args the command-line arguments
+     */
+    public static void main(String[] args) {
+        In in = new In(args[0]);
+        EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
+        System.out.println(G);
     }
 }
