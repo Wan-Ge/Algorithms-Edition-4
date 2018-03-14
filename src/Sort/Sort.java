@@ -131,7 +131,7 @@ public class Sort extends DrawTrack {
             else if (j > high)              a[k] = aux[i++];
             else if (less(aux[j], aux[i]))  a[k] = aux[j++];
             else                            a[k] = aux[i++];
-            //t.traceSortTrack(a, draw);   //if you write this line code outside for loop, it will draw more quickly.
+            t.traceSortTrack(a, draw);   //if you write this line code outside for loop, it will draw more quickly.
         }
     }
 
@@ -174,10 +174,10 @@ public class Sort extends DrawTrack {
             while (less(v, a[--j]))     if (j == low)   break;
             if (i >= j)     break;
             exch(a, i, j);
-            //t.traceSortTrack(a, i, j);
+            t.traceSortTrack(a, i, j);
         }
         exch(a, low, j);       //put v = a[j] into a correct position
-        //t.traceSortTrack(a, low, j);
+        t.traceSortTrack(a, low, j);
         return j;              // a[low..j-1] <= a[j] <= a[j+1..high] reached
     }
 

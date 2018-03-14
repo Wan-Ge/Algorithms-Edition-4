@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 /**
  * The {@code DijkstraSP} class represent a data type for solving the single-source
- * shortest paths problem in edge-weighted digraphs where the edge weights are nonnegative
+ * shortest paths problem in edge-weighted digraphs where the edge weights are non-negative
  *
  * Online Data files:   http://algs4.cs.princeton.edu/44sp/tinyEWD.txt
  *                      http://algs4.cs.princeton.edu/44sp/mediumEWD.txt
@@ -95,6 +95,7 @@ public class DijkstraSP {
     public static void main(String[] args) {
         In in = new In(args[0]);
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
+        // s -> start point
         int s = Integer.parseInt(args[1]);
 
         // compute shortest path
