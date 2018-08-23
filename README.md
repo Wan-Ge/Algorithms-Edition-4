@@ -4,16 +4,17 @@ All of the above code is the **basic algorithm** in *Algorithm-4th-Edtion*, Thes
 
 At the moment, i just added the original book without giving the sorting visualization window code. To facilitate myself and those who need it to view and study.  (2017/03/17)
 
-Hope you will like it !            ^ _ ^
+Hope you will like it !                ^ _ ^
 
 Dependencies: algs4.jar
 
 Data files: http://algs4.cs.princeton.edu/code/algs4.jar
 
-Tips: There is a problem worthy of our attention. The stack used in book(or algs4.jar) is not the same as the JDK. In 
-fact, there is a bug in JDK of Stack since JDK 1.3, while you use foreach loop to iterate an array, you will find that
+Tips: There is a problem worthy of our attention. The stack used in book(or algs4.jar) is not the same as the JDK. In fact, there is a bug in JDK of Stack since JDK 1.3, while you use foreach loop to iterate an array, you will find that
 the order isn't from bottom to top as you like. It will iterate it from top to bottom. More information you can see this
 article ([CSDN_Blog](http://blog.csdn.net/lai_li/article/details/68948693)) or official website([Oracle](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=4475301)).
+
+Modified for a test.
 
 
 
